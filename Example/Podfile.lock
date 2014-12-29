@@ -1,0 +1,20 @@
+PODS:
+  - Avenue (0.1.0)
+  - Expecta (0.3.1)
+  - Specta (0.2.1)
+
+DEPENDENCIES:
+  - Avenue (from `../`)
+  - Expecta
+  - Specta (~> 0.2.1)
+
+EXTERNAL SOURCES:
+  Avenue:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Avenue: f6a53c49c09e410074dad308c2545faf85f8c38f
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+
+COCOAPODS: 0.35.0
