@@ -1,6 +1,32 @@
 PODS:
-  - Avenue (0.1.0)
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Avenue (0.0.1):
+    - AFNetworking
+    - KVOController
+    - PromiseKit/Promise
   - Expecta (0.3.1)
+  - KVOController (1.0.3)
+  - PromiseKit/Promise (1.2)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -13,8 +39,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Avenue: f6a53c49c09e410074dad308c2545faf85f8c38f
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  Avenue: 415e13e7270a0341bbcf6ac4fb0119ecc8ad7ed3
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  KVOController: b1139ef1fc373b6757e4b69493fedd7b56eb1272
+  PromiseKit: 89cb68ff4093e71221a63ca7272d427bf34c4560
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
 
 COCOAPODS: 0.35.0

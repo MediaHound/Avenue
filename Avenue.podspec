@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
   s.private_header_files = "Pod/Classes/**/*+Internal.h"
 
   s.dependency 'AFNetworking'
-  s.dependency 'AgnosticLogger'
-  s.dependency 'AtSugar/Singleton'
-  s.dependency 'AtSugar/Weakify'
+  # s.dependency 'AgnosticLogger'
   s.dependency 'KVOController'
   s.dependency 'PromiseKit/Promise'
 end

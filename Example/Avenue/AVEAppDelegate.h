@@ -3,7 +3,7 @@
 //  Avenue
 //
 //  Created by CocoaPods on 12/29/2014.
-//  Copyright (c) 2014 Dustin Bachrach. All rights reserved.
+//  Copyright (c) 2014 MediaHound. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
