@@ -45,10 +45,15 @@
  * Executes a POST request.
  * @param URLString The URL endpoint
  * @param parameters Any HTTP parameters for the request
+ * @param networkToken A network token which will be associated with this network request.
+ *        Use the network token to cancel or re-prioritize this network reqeust.
+ * @param priority The network priority to indicate when/how this request should be scheduled
  * @param builder A builder to construct the underlying request operation
  */
 - (PMKPromise*)POST:(NSString*)URLString
          parameters:(NSDictionary*)parameters
+       networkToken:(AVENetworkToken*)networkToken
+           priority:(AVENetworkPriority*)priority
             builder:(id<AVERequestBuilder>)builder;
 
 /**
@@ -56,11 +61,16 @@
  * @param URLString The URL endpoint
  * @param parameters Any HTTP parameters for the request
  * @param bodyBlock A block to execute to add body data.
+ * @param networkToken A network token which will be associated with this network request.
+ *        Use the network token to cancel or re-prioritize this network reqeust.
+ * @param priority The network priority to indicate when/how this request should be scheduled
  * @param builder A builder to construct the underlying request operation
  */
 - (PMKPromise*)POST:(NSString*)URLString
          parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
+       networkToken:(AVENetworkToken*)networkToken
+           priority:(AVENetworkPriority*)priority
             builder:(id<AVERequestBuilder>)builder;
 
 /**

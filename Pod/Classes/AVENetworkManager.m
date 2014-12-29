@@ -344,6 +344,8 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
 
 - (PMKPromise*)POST:(NSString*)URLString
          parameters:(NSDictionary*)parameters
+       networkToken:(AVENetworkToken*)networkToken
+           priority:(AVENetworkPriority*)priority
             builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -355,9 +357,8 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                                                            URL:URLString
                                                     parameters:parameters
                                      constructingBodyWithBlock:nil
-                                                  networkToken:nil
-                                                      priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh
-                                                                                        postponeable:NO]
+                                                  networkToken:networkToken
+                                                      priority:priority
                                                        builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
@@ -376,6 +377,8 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
 - (PMKPromise*)POST:(NSString*)URLString
       parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
+       networkToken:(AVENetworkToken*)networkToken
+           priority:(AVENetworkPriority*)priority
             builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -387,9 +390,8 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
                                                            URL:URLString
                                                     parameters:parameters
                                      constructingBodyWithBlock:bodyBlock
-                                                  networkToken:nil
-                                                      priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh
-                                                                                        postponeable:NO]
+                                                  networkToken:networkToken
+                                                      priority:priority
                                                        builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
