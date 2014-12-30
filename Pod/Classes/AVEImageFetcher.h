@@ -41,4 +41,9 @@
                  priority:(AVENetworkPriority*)priority
              networkToken:(AVENetworkToken*)networkToken;
 
+/**
+ * Remove all images from cache.
+ */
+- (void)clearCache;
+
 @end

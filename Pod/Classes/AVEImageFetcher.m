@@ -95,6 +95,13 @@ static NSString* const kFolderName = @"generic_images_cache";
     return [NSString stringWithFormat:@"%@/%@", self.cachePath, @(url.hash)];
 }
 
+- (void)clearCache
+{
+    [[NSFileManager defaultManager] removeItemAtPath:self.cachePath
+                                               error:nil];
+    [self.inMemoryCache removeAllObjects];
+}
+
 - (PMKPromise*)fetchImage:(NSString*)url
 {
     return [self fetchImage:url

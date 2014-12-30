@@ -105,14 +105,21 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                                                              diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
     
+    // TODO: This should be removed
 #ifndef APPSTORE
     if ([[NSUserDefaults standardUserDefaults] boolForKey:MHClearCachePreference]) {
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:MHClearCachePreference];
     
-        NSString* cacheFolderPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-        [[NSFileManager defaultManager] removeItemAtPath:cacheFolderPath error:nil];
+        [self clearCache];
     }
 #endif
+}
+
+- (void)clearCache
+{
+    NSString* cacheFolderPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    [[NSFileManager defaultManager] removeItemAtPath:cacheFolderPath error:nil];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (AFURLConnectionOperation<AVERequestOperation>*)taskForMethod:(NSString*)method

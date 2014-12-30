@@ -78,4 +78,9 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
  */
 - (void)postponeAllGETRequests;
 
+/**
+ * Remove all cached HTTP responses.
+ */
+- (void)clearCache;
+
 @end
