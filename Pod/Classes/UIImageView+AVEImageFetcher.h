@@ -20,6 +20,7 @@
  *   - Network priority
  *   - Cancelation
  *   - Reprioritization
+ *   - Cross Fades
  */
 @interface UIImageView (AVEImageFetcher)
 

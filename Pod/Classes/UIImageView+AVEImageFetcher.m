@@ -28,7 +28,7 @@
 {
     return [self setImageForURL:url
                     placeholder:placeholder
-              crossFadeDuration:0.25f
+              crossFadeDuration:0
                      stillValid:stillValid
                        priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh]
                    networkToken:networkToken];

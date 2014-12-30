@@ -78,12 +78,12 @@
     // Asyncronously load the image URL and draw the finished image into the cells'
     // imageView.
     // We will show the 'placeholder' image until it is loaded.
-    // A .3 second crossfade will be applied when setting the image. Pass 0 to not cross fade.
+    // A .25 second crossfade will be applied when setting the image. Pass 0 to not cross fade.
     // The `stillValid` block is executed when the image request finishes to check
     // if the cell has been recycled or not.
     [imageView setImageForURL:self.urls[indexPath.row]
                   placeholder:[UIImage imageNamed:@"placeholder"]
-            crossFadeDuration:0.3
+            crossFadeDuration:0.25
                    stillValid:^BOOL{
                        return cell.indexPath.row == indexPath.row;
                    }
