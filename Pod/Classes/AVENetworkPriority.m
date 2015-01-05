@@ -33,6 +33,21 @@
     return priority;
 }
 
+- (NSString*)description
+{
+    NSString* priorityName = nil;
+    switch (self.level) {
+        case AVENetworkPriorityLevelHigh: priorityName = @"High"; break;
+        case AVENetworkPriorityLevelLow: priorityName = @"Low"; break;
+        case AVENetworkPriorityLevelPostponed: priorityName = @"Postponed"; break;
+        default: priorityName = @"<None>"; break;
+    }
+    
+    NSString* postponeableName = (self.postponeable) ? @"Postponable" : @"Unpostponable";
+    
+    return [NSString stringWithFormat:@"<Priority:%@ (%@)>", priorityName, postponeableName];
+}
+
 @end
 
 

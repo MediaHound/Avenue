@@ -97,26 +97,14 @@
     }
 }
 
-- (NSString*)priorityDescription
-{
-    NSString* priorityName = nil;
-    switch (self.priority.level) {
-        case AVENetworkPriorityLevelHigh: priorityName = @"High"; break;
-        case AVENetworkPriorityLevelLow: priorityName = @"Low"; break;
-        case AVENetworkPriorityLevelPostponed: priorityName = @"Postponed"; break;
-    }
-    return priorityName;
-}
-
 - (void)start
 {
     if (!self.isCancelled) {
-//        NSString* priorityName = [self priorityDescription];
-//        AGLLogInfo(@"HTTPReqOp started: %@ (q %@)", self.url, priorityName);
+//        AGLLogInfo(@"HTTPReqOp started: %@ (q %@)", self.url, self.priority);
         
         __weak typeof(self) weakSelf = self;
         [self setCompletionBlockWithSuccess:^(AFHTTPRequestOperation* operation, id responseObject) {
-//            AGLLogInfo(@"HTTPReqOp succesfull: %@ (q %@)(c %d)", self.url, priorityName, self.completions.count);
+//            AGLLogInfo(@"HTTPReqOp succesfull: %@ (q %@)(c %d)", self.url, self.priority, self.completions.count);
             [weakSelf fireCompletionsWith:responseObject];
         }
                                     failure:^(AFHTTPRequestOperation* operation, NSError* error) {
