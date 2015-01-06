@@ -123,12 +123,12 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
 }
 
 - (AFURLConnectionOperation<AVERequestOperation>*)taskForMethod:(NSString*)method
-                                     URL:(NSString*)URLString
-                              parameters:(NSDictionary*)parameters
-               constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
-                            networkToken:(AVENetworkToken*)networkToken
-                                priority:(AVENetworkPriority*)priority
-               builder:(id<AVERequestBuilder>)builder
+                                                            URL:(NSString*)URLString
+                                                     parameters:(NSDictionary*)parameters
+                                      constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
+                                                   networkToken:(AVENetworkToken*)networkToken
+                                                       priority:(AVENetworkPriority*)priority
+                                                        builder:(id<AVERequestBuilder>)builder
 {
     AFURLConnectionOperation<AVERequestOperation>* operation = [builder build:method
                                                                          path:URLString
@@ -179,12 +179,12 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                 else { // add a fresh task to slow queue
 //                    AGLLogInfo(@"Changing priority of %@ to LOW, and creating new slowTask", URLString);
                     AFURLConnectionOperation<AVERequestOperation>* task = [weakSelf taskForMethod:method
-                                                                   URL:URLString
-                                                            parameters:parameters
-                                             constructingBodyWithBlock:bodyBlock
-                                                          networkToken:networkToken
-                                                              priority:priority
-                                                                   builder:builder];
+                                                                                              URL:URLString
+                                                                                       parameters:parameters
+                                                                        constructingBodyWithBlock:bodyBlock
+                                                                                     networkToken:networkToken
+                                                                                         priority:priority
+                                                                                          builder:builder];
                     [task addCompletions:completions];
                 }
             }
@@ -281,12 +281,12 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                     [postponedTask cancel];
                     
                     AFURLConnectionOperation<AVERequestOperation>* task = [self taskForMethod:@"GET"
-                                                                   URL:URLString
-                                                            parameters:parameters
-                                             constructingBodyWithBlock:nil
-                                                          networkToken:networkToken
-                                                              priority:newPriority
-                                                               builder:builder];
+                                                                                          URL:URLString
+                                                                                   parameters:parameters
+                                                                    constructingBodyWithBlock:nil
+                                                                                 networkToken:networkToken
+                                                                                     priority:newPriority
+                                                                                      builder:builder];
                     [task addCompletion:completion];
                     [task addCompletions:postponedCompletions];
                 }
@@ -332,12 +332,12 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                     [postponedTask cancel];
                     
                     AFURLConnectionOperation<AVERequestOperation>* task = [self taskForMethod:@"GET"
-                                                                   URL:URLString
-                                                            parameters:parameters
-                                             constructingBodyWithBlock:nil
-                                                          networkToken:networkToken
-                                                              priority:newPriority
-                                                               builder:builder];
+                                                                                          URL:URLString
+                                                                                   parameters:parameters
+                                                                    constructingBodyWithBlock:nil
+                                                                                 networkToken:networkToken
+                                                                                     priority:newPriority
+                                                                                      builder:builder];
                     [task addCompletion:completion];
                     [task addCompletions:completions];
                     [task addCompletions:postponedCompletions];
@@ -361,12 +361,44 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
             [self.lock lock];
             
             AFURLConnectionOperation<AVERequestOperation>* task = [self taskForMethod:@"POST"
-                                                           URL:URLString
-                                                    parameters:parameters
-                                     constructingBodyWithBlock:nil
-                                                  networkToken:networkToken
-                                                      priority:priority
-                                                       builder:builder];
+                                                                                  URL:URLString
+                                                                           parameters:parameters
+                                                            constructingBodyWithBlock:nil
+                                                                         networkToken:networkToken
+                                                                             priority:priority
+                                                                              builder:builder];
+            [task addCompletion:^(id result) {
+                if ([result isKindOfClass:NSError.class]) {
+                    rejecter(result);
+                }
+                else {
+                    fulfiller(result);
+                }
+            }];
+            
+            [self.lock unlock];
+        });
+    }];
+}
+
+- (PMKPromise*)PUT:(NSString*)URLString
+        parameters:(NSDictionary*)parameters
+      networkToken:(AVENetworkToken*)networkToken
+          priority:(AVENetworkPriority*)priority
+           builder:(id<AVERequestBuilder>)builder
+{
+    return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            [self.lock lock];
+            
+            AFURLConnectionOperation<AVERequestOperation>* task = [self taskForMethod:@"PUT"
+                                                                                  URL:URLString
+                                                                           parameters:parameters
+                                                            constructingBodyWithBlock:nil
+                                                                         networkToken:networkToken
+                                                                             priority:priority
+                                                                              builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
                     rejecter(result);
@@ -382,7 +414,7 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
 }
 
 - (PMKPromise*)POST:(NSString*)URLString
-      parameters:(id)parameters
+         parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
        networkToken:(AVENetworkToken*)networkToken
            priority:(AVENetworkPriority*)priority
@@ -394,12 +426,12 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
             [self.lock lock];
             
             AFURLConnectionOperation<AVERequestOperation>* task = [self taskForMethod:@"POST"
-                                                           URL:URLString
-                                                    parameters:parameters
-                                     constructingBodyWithBlock:bodyBlock
-                                                  networkToken:networkToken
-                                                      priority:priority
-                                                       builder:builder];
+                                                                                  URL:URLString
+                                                                           parameters:parameters
+                                                            constructingBodyWithBlock:bodyBlock
+                                                                         networkToken:networkToken
+                                                                             priority:priority
+                                                                              builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
                     rejecter(result);
@@ -484,12 +516,12 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
     // add a fresh task to postponed queue
 //    AGLLogInfo(@"[AVENetworkManager] Moving task to postponed queue: %@", task.url);
     AFURLConnectionOperation<AVERequestOperation>* newTask = [self taskForMethod:task.method
-                                                   URL:task.url
-                                            parameters:task.parameters
-                             constructingBodyWithBlock:nil
-                                          networkToken:nil
-                                              priority:[[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelPostponed] priorityByMergingPriority:task.priority]
-                                                  builder:task.builder];
+                                                                             URL:task.url
+                                                                      parameters:task.parameters
+                                                       constructingBodyWithBlock:nil
+                                                                    networkToken:nil
+                                                                        priority:[[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelPostponed] priorityByMergingPriority:task.priority]
+                                                                         builder:task.builder];
     [newTask addCompletions:completions];
 }
 

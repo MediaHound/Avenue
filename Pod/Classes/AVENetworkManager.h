@@ -57,6 +57,21 @@
             builder:(id<AVERequestBuilder>)builder;
 
 /**
+ * Executes a PUT request.
+ * @param URLString The URL endpoint
+ * @param parameters Any HTTP parameters for the request
+ * @param networkToken A network token which will be associated with this network request.
+ *        Use the network token to cancel or re-prioritize this network reqeust.
+ * @param priority The network priority to indicate when/how this request should be scheduled
+ * @param builder A builder to construct the underlying request operation.
+ */
+- (PMKPromise*)PUT:(NSString*)URLString
+        parameters:(NSDictionary*)parameters
+      networkToken:(AVENetworkToken*)networkToken
+          priority:(AVENetworkPriority*)priority
+           builder:(id<AVERequestBuilder>)builder;
+
+/**
  * Executes a POST request with access to modify the body.
  * @param URLString The URL endpoint
  * @param parameters Any HTTP parameters for the request
