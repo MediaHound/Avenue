@@ -1,6 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Avenue', :exclusive => true do
+  pod "KVOController", :git => 'https://github.com/dbachrach/KVOController.git'
   pod "Avenue", :path => "../"
 end
 

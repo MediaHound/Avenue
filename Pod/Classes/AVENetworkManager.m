@@ -13,6 +13,7 @@
 
 //#import <AgnosticLogger/AgnosticLogger.h>
 #import <KVOController/FBKVOController.h>
+#import <KVOController/NSObject+FBKVOController.h>
 
 static NSString* const MHClearCachePreference = @"clear_cache_preference";
 
