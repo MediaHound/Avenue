@@ -15,8 +15,6 @@
 #import <KVOController/FBKVOController.h>
 #import <KVOController/NSObject+FBKVOController.h>
 
-static NSString* const MHClearCachePreference = @"clear_cache_preference";
-
 
 @interface AVENetworkManager ()
 
@@ -105,15 +103,6 @@ static NSString* const MHClearCachePreference = @"clear_cache_preference";
                                                          diskCapacity:20 * 1024 * 1024
                                                              diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
-    
-    // TODO: This should be removed
-#ifndef APPSTORE
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:MHClearCachePreference]) {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:MHClearCachePreference];
-    
-        [self clearCache];
-    }
-#endif
 }
 
 - (void)clearCache

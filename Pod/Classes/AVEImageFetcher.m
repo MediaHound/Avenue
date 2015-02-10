@@ -9,6 +9,7 @@
 #import "AVEImageFetcher.h"
 #import "AVENetworkManager.h"
 #import "AVEHTTPRequestOperationBuilder.h"
+#import "AVEError+Internal.h"
 
 
 static NSString* const kFolderName = @"generic_images_cache";
@@ -137,8 +138,7 @@ static NSString* const kFolderName = @"generic_images_cache";
                         return image;
                     }
                     else {
-                        // TODO: Proper NSError
-                        return [NSError errorWithDomain:@"AVEImageFetcher -- Invalid Image Response Data" code:701 userInfo:nil];
+                        return AVEErrorMake(AVEInvalidImageResponseDataError, @{});
                     }
                 });
                 fulfill(getPromise);

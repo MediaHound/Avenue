@@ -10,6 +10,7 @@
 #import "AVENetworkManager.h"
 #import "AVENetworkPriority.h"
 #import "AVENetworkToken.h"
+#import "AVEError.h"
 
 // Requests
 #import "AVERequestBuilder.h"
