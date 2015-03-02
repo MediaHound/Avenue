@@ -30,7 +30,7 @@
  * The builders' base URL
  * All operations built will use this base URL.
  */
-@property (strong, nonatomic, readonly) NSURL* baseURL;
+@property (strong, nonatomic) NSURL* baseURL;
 
 /**
  * The request serializer for all built operations

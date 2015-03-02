@@ -10,13 +10,6 @@
 #import "AVEHTTPRequestOperation.h"
 
 
-@interface AVEHTTPRequestOperationBuilder ()
-
-@property (strong, nonatomic, readwrite) NSURL* baseURL;
-
-@end
-
-
 @implementation AVEHTTPRequestOperationBuilder
 
 - (instancetype)init
