@@ -24,7 +24,7 @@
 /**
  * Creates a builder with a base URL.
  */
-- (instancetype)initWithBaseURL:(NSString*)url;
+- (instancetype)initWithBaseURL:(NSURL*)url;
 
 /**
  * The builders' base URL
