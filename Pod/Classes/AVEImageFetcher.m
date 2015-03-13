@@ -74,8 +74,7 @@ static NSString* const kFolderName = @"generic_images_cache";
         return image;
     }
     
-    NSData* imageData = [NSData dataWithContentsOfFile:[self cachedPathForURL:url]];
-    image = [UIImage imageWithData:imageData];
+    image = [UIImage imageWithContentsOfFile:[self cachedPathForURL:url]];
     if (!image) {
         return nil;
     }
