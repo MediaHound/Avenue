@@ -123,10 +123,10 @@ static NSString* const kFolderName = @"generic_images_cache";
             }
             else {
                 PMKPromise* getPromise = [[AVENetworkManager sharedManager] GET:url
-                                                                    parameters:nil
-                                                                  networkToken:networkToken
-                                                                      priority:priority
-                                                                       builder:self.builder].thenOn(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                                                                     parameters:nil
+                                                                       priority:priority
+                                                                   networkToken:networkToken
+                                                                        builder:self.builder].thenOn(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                                                                                                 ^id (id response) {
                     UIImage* image = [UIImage imageWithData:response];
                     if (image) {

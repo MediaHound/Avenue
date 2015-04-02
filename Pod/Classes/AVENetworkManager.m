@@ -116,8 +116,8 @@
                                                             URL:(NSString*)URLString
                                                      parameters:(NSDictionary*)parameters
                                       constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
-                                                   networkToken:(AVENetworkToken*)networkToken
                                                        priority:(AVENetworkPriority*)priority
+                                                   networkToken:(AVENetworkToken*)networkToken
                                                         builder:(id<AVERequestBuilder>)builder
 {
     AFURLConnectionOperation<AVERequestOperation>* operation = [builder build:method
@@ -172,8 +172,8 @@
                                                                                               URL:URLString
                                                                                        parameters:parameters
                                                                         constructingBodyWithBlock:bodyBlock
-                                                                                     networkToken:networkToken
                                                                                          priority:priority
+                                                                                     networkToken:networkToken
                                                                                           builder:builder];
                     [task addCompletions:completions];
                 }
@@ -201,8 +201,8 @@
 
 - (PMKPromise*)GET:(NSString*)URLString
         parameters:(NSDictionary*)parameters
-      networkToken:(AVENetworkToken*)networkToken
           priority:(AVENetworkPriority*)priority
+      networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -274,8 +274,8 @@
                                                                                           URL:URLString
                                                                                    parameters:parameters
                                                                     constructingBodyWithBlock:nil
-                                                                                 networkToken:networkToken
                                                                                      priority:newPriority
+                                                                                 networkToken:networkToken
                                                                                       builder:builder];
                     [task addCompletion:completion];
                     [task addCompletions:postponedCompletions];
@@ -325,8 +325,8 @@
                                                                                           URL:URLString
                                                                                    parameters:parameters
                                                                     constructingBodyWithBlock:nil
-                                                                                 networkToken:networkToken
                                                                                      priority:newPriority
+                                                                                 networkToken:networkToken
                                                                                       builder:builder];
                     [task addCompletion:completion];
                     [task addCompletions:completions];
@@ -341,8 +341,8 @@
 
 - (PMKPromise*)POST:(NSString*)URLString
          parameters:(NSDictionary*)parameters
-       networkToken:(AVENetworkToken*)networkToken
            priority:(AVENetworkPriority*)priority
+       networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -354,8 +354,8 @@
                                                                                   URL:URLString
                                                                            parameters:parameters
                                                             constructingBodyWithBlock:nil
-                                                                         networkToken:networkToken
                                                                              priority:priority
+                                                                         networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
@@ -373,8 +373,8 @@
 
 - (PMKPromise*)PUT:(NSString*)URLString
         parameters:(NSDictionary*)parameters
-      networkToken:(AVENetworkToken*)networkToken
           priority:(AVENetworkPriority*)priority
+      networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -386,8 +386,8 @@
                                                                                   URL:URLString
                                                                            parameters:parameters
                                                             constructingBodyWithBlock:nil
-                                                                         networkToken:networkToken
                                                                              priority:priority
+                                                                         networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
@@ -406,8 +406,8 @@
 - (PMKPromise*)POST:(NSString*)URLString
          parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
-       networkToken:(AVENetworkToken*)networkToken
            priority:(AVENetworkPriority*)priority
+       networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
     return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
@@ -419,8 +419,8 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
                                                                                   URL:URLString
                                                                            parameters:parameters
                                                             constructingBodyWithBlock:bodyBlock
-                                                                         networkToken:networkToken
                                                                              priority:priority
+                                                                         networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
                 if ([result isKindOfClass:NSError.class]) {
@@ -436,22 +436,27 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
     }];
 }
 
-- (AFURLConnectionOperation<AVERequestOperation>*)existingFastQueueTaskFor:(NSString*)url parameters:(NSDictionary*)parameters
+- (AFURLConnectionOperation<AVERequestOperation>*)existingFastQueueTaskFor:(NSString*)url
+                                                                parameters:(NSDictionary*)parameters
 {
     return [self existingTaskFor:url parameters:parameters inQueue:self.fastRequestQueue];
 }
 
-- (AFURLConnectionOperation<AVERequestOperation>*)existingSlowQueueTaskFor:(NSString*)url parameters:(NSDictionary*)parameters
+- (AFURLConnectionOperation<AVERequestOperation>*)existingSlowQueueTaskFor:(NSString*)url
+                                                                parameters:(NSDictionary*)parameters
 {
     return [self existingTaskFor:url parameters:parameters inQueue:self.slowRequestQueue];
 }
 
-- (AFURLConnectionOperation<AVERequestOperation>*)existingPostponedQueueTaskFor:(NSString*)url parameters:(NSDictionary*)parameters
+- (AFURLConnectionOperation<AVERequestOperation>*)existingPostponedQueueTaskFor:(NSString*)url
+                                                                     parameters:(NSDictionary*)parameters
 {
     return [self existingTaskFor:url parameters:parameters inQueue:self.postponedRequestQueue];
 }
 
-- (AFURLConnectionOperation<AVERequestOperation>*)existingTaskFor:(NSString*)url parameters:(NSDictionary*)parameters inQueue:(NSOperationQueue*)queue
+- (AFURLConnectionOperation<AVERequestOperation>*)existingTaskFor:(NSString*)url
+                                                       parameters:(NSDictionary*)parameters
+                                                          inQueue:(NSOperationQueue*)queue
 {
     for (AFURLConnectionOperation<AVERequestOperation>* task in queue.operations) {
         if ((task.isReady || task.isExecuting)
@@ -509,8 +514,8 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
                                                                              URL:task.url
                                                                       parameters:task.parameters
                                                        constructingBodyWithBlock:nil
-                                                                    networkToken:nil
                                                                         priority:[[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelPostponed] priorityByMergingPriority:task.priority]
+                                                                    networkToken:nil
                                                                          builder:task.builder];
     [newTask addCompletions:completions];
 }
