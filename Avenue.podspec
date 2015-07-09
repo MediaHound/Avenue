@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Avenue"
-  s.version          = "0.0.2"
+  s.version          = "0.1.0"
   s.summary          = "A Networking Infrastructure"
   s.homepage         = "https://github.com/MediaHound/Avenue"
   s.license          = 'Apache'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking'
   # s.dependency 'AgnosticLogger'
   s.dependency 'KVOController'
-  s.dependency 'PromiseKit/Promise'
+  s.dependency 'PromiseKit', '~> 1.5'
 end
