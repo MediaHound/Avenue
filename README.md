@@ -17,6 +17,10 @@ it, simply add the following line to your Podfile:
 
     pod "Avenue"
 
+## Documentation
+
+View the API Documentation at [CocoaDocs: Avenue](http://cocoadocs.org/docsets/Avenue/0.1.0/).
+
 ## Author
 
 MediaHound
