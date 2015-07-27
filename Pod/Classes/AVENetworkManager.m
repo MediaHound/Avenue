@@ -198,24 +198,19 @@
     return operation;
 }
 
-- (PMKPromise*)GET:(NSString*)URLString
+- (AnyPromise*)GET:(NSString*)URLString
         parameters:(NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
       networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
-    return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
             
             void (^completion)(id) = ^(id result) {
-                if ([result isKindOfClass:NSError.class]) {
-                    rejecter(result);
-                }
-                else {
-                    fulfiller(result);
-                }
+                resolve(result);
             };
             
             AFURLConnectionOperation<AVERequestOperation>* slowTask = [self existingSlowQueueTaskFor:URLString parameters:parameters];
@@ -338,13 +333,13 @@
     }];
 }
 
-- (PMKPromise*)POST:(NSString*)URLString
+- (AnyPromise*)POST:(NSString*)URLString
          parameters:(NSDictionary*)parameters
            priority:(AVENetworkPriority*)priority
        networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
-    return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -357,12 +352,7 @@
                                                                          networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
-                if ([result isKindOfClass:NSError.class]) {
-                    rejecter(result);
-                }
-                else {
-                    fulfiller(result);
-                }
+                resolve(result);
             }];
             
             [self.lock unlock];
@@ -370,13 +360,13 @@
     }];
 }
 
-- (PMKPromise*)PUT:(NSString*)URLString
+- (AnyPromise*)PUT:(NSString*)URLString
         parameters:(NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
       networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
-    return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -389,12 +379,7 @@
                                                                          networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
-                if ([result isKindOfClass:NSError.class]) {
-                    rejecter(result);
-                }
-                else {
-                    fulfiller(result);
-                }
+                resolve(result);
             }];
             
             [self.lock unlock];
@@ -402,14 +387,14 @@
     }];
 }
 
-- (PMKPromise*)POST:(NSString*)URLString
+- (AnyPromise*)POST:(NSString*)URLString
          parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
            priority:(AVENetworkPriority*)priority
        networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
-    return [PMKPromise new:^(PMKPromiseFulfiller fulfiller, PMKPromiseRejecter rejecter) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -422,12 +407,7 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
                                                                          networkToken:networkToken
                                                                               builder:builder];
             [task addCompletion:^(id result) {
-                if ([result isKindOfClass:NSError.class]) {
-                    rejecter(result);
-                }
-                else {
-                    fulfiller(result);
-                }
+                resolve(result);
             }];
             
             [self.lock unlock];

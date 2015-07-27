@@ -35,7 +35,7 @@
  *        Use the network token to cancel or re-prioritize this network reqeust.
  * @param builder A builder to construct the underlying request operation.
  */
-- (PMKPromise*)GET:(NSString*)URLString
+- (AnyPromise*)GET:(NSString*)URLString
         parameters:(NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
       networkToken:(AVENetworkToken*)networkToken
@@ -50,7 +50,7 @@
  *        Use the network token to cancel or re-prioritize this network reqeust.
  * @param builder A builder to construct the underlying request operation
  */
-- (PMKPromise*)POST:(NSString*)URLString
+- (AnyPromise*)POST:(NSString*)URLString
          parameters:(NSDictionary*)parameters
            priority:(AVENetworkPriority*)priority
        networkToken:(AVENetworkToken*)networkToken
@@ -65,7 +65,7 @@
  *        Use the network token to cancel or re-prioritize this network reqeust.
  * @param builder A builder to construct the underlying request operation.
  */
-- (PMKPromise*)PUT:(NSString*)URLString
+- (AnyPromise*)PUT:(NSString*)URLString
         parameters:(NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
       networkToken:(AVENetworkToken*)networkToken
@@ -81,7 +81,7 @@
  *        Use the network token to cancel or re-prioritize this network reqeust.
  * @param builder A builder to construct the underlying request operation
  */
-- (PMKPromise*)POST:(NSString*)URLString
+- (AnyPromise*)POST:(NSString*)URLString
          parameters:(id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
            priority:(AVENetworkPriority*)priority

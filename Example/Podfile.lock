@@ -20,11 +20,11 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Avenue (0.1.0):
+  - Avenue (0.2.0):
     - AFNetworking
     - KVOController
-    - PromiseKit (~> 1.5)
-  - Expecta (1.0.0)
+    - PromiseKit (~> 2.0)
+  - Expecta (1.0.2)
   - KVOController (1.0.3)
   - OMGHTTPURLRQ (2.1.3):
     - OMGHTTPURLRQ/RQ (= 2.1.3)
@@ -33,46 +33,23 @@ PODS:
     - OMGHTTPURLRQ/FormURLEncode
     - OMGHTTPURLRQ/UserAgent
   - OMGHTTPURLRQ/UserAgent (2.1.3)
-  - PromiseKit (1.6.0):
-    - PromiseKit/CALayer (= 1.6.0)
-    - PromiseKit/NSNotificationCenter (= 1.6.0)
-    - PromiseKit/NSURLConnection (= 1.6.0)
-    - PromiseKit/Pause (= 1.6.0)
-    - PromiseKit/UIActionSheet (= 1.6.0)
-    - PromiseKit/UIAlertView (= 1.6.0)
-    - PromiseKit/UIView (= 1.6.0)
-    - PromiseKit/UIViewController (= 1.6.0)
-    - PromiseKit/Until (= 1.6.0)
-    - PromiseKit/When (= 1.6.0)
-  - PromiseKit/CALayer (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/NSNotificationCenter (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/NSURLConnection (1.6.0):
-    - OMGHTTPURLRQ (~> 2.1)
-    - PromiseKit/Promise
-  - PromiseKit/Pause (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/Promise (1.6.0)
-  - PromiseKit/UIActionSheet (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIAlertView (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIView (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/UIViewController (1.6.0):
-    - PromiseKit/Promise
-  - PromiseKit/Until (1.6.0):
-    - PromiseKit/Promise
-    - PromiseKit/When
-  - PromiseKit/When (1.6.0):
-    - PromiseKit/Promise
+  - PromiseKit (2.1.0):
+    - PromiseKit/Foundation (= 2.1.0)
+    - PromiseKit/QuartzCore (= 2.1.0)
+    - PromiseKit/UIKit (= 2.1.0)
+  - PromiseKit/CorePromise (2.1.0)
+  - PromiseKit/Foundation (2.1.0):
+    - OMGHTTPURLRQ (~> 2.1.3)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (2.1.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (2.1.0):
+    - PromiseKit/CorePromise
   - Specta (0.2.1)
 
 DEPENDENCIES:
   - Avenue (from `../`)
   - Expecta
-  - KVOController
   - Specta (~> 0.2.1)
 
 EXTERNAL SOURCES:
@@ -81,11 +58,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Avenue: 59b7a827cafe9bbff6db3751dd8eb7157d72f5c6
-  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
+  Avenue: 73008e0afa3d2b7687c83e0b4dff2dba801f11fc
+  Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
-  PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
+  PromiseKit: 6e9fae221f0bcf83fee53b611168cfb557f472d1
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.1

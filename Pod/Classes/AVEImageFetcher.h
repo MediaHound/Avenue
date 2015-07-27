@@ -29,7 +29,7 @@
  * Fetches a remote image.
  * The returned promise will contain a UIImage*.
  */
-- (PMKPromise*)fetchImage:(NSString*)url;
+- (AnyPromise*)fetchImage:(NSString*)url;
 
 /**
  * Fetches a remote image.
@@ -37,7 +37,7 @@
  * To specify the priority that the image network request should be executed at, pass a `priority`.
  * The returned promise will contain a UIImage*.
  */
-- (PMKPromise*)fetchImage:(NSString*)url
+- (AnyPromise*)fetchImage:(NSString*)url
                  priority:(AVENetworkPriority*)priority
              networkToken:(AVENetworkToken*)networkToken;
 

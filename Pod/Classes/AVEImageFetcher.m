@@ -102,27 +102,27 @@ static NSString* const kFolderName = @"generic_images_cache";
     [self.inMemoryCache removeAllObjects];
 }
 
-- (PMKPromise*)fetchImage:(NSString*)url
+- (AnyPromise*)fetchImage:(NSString*)url
 {
     return [self fetchImage:url
                    priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh]
                networkToken:nil];
 }
 
-- (PMKPromise*)fetchImage:(NSString*)url
+- (AnyPromise*)fetchImage:(NSString*)url
                  priority:(AVENetworkPriority*)priority
              networkToken:(AVENetworkToken*)networkToken
 {
     __weak typeof(self) weakSelf = self;
-    return [PMKPromise new:^(PMKPromiseFulfiller fulfill, PMKPromiseRejecter reject) {
+    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             if ([weakSelf haveImageForURL:url]) {
                 UIImage* image = [weakSelf imageForURL:url];
                 [weakSelf decompressImage:image];
-                fulfill(image);
+                resolve(image);
             }
             else {
-                PMKPromise* getPromise = [[AVENetworkManager sharedManager] GET:url
+                AnyPromise* getPromise = [[AVENetworkManager sharedManager] GET:url
                                                                      parameters:nil
                                                                        priority:priority
                                                                    networkToken:networkToken
@@ -140,7 +140,7 @@ static NSString* const kFolderName = @"generic_images_cache";
                         return AVEErrorMake(AVEInvalidImageResponseDataError, @{});
                     }
                 });
-                fulfill(getPromise);
+                resolve(getPromise);
             }
 
         });

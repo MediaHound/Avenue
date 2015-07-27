@@ -1,7 +1,7 @@
-source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
 
 target 'Avenue', :exclusive => true do
-  pod "KVOController"
   pod "Avenue", :path => "../"
 end
 
