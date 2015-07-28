@@ -23,28 +23,10 @@ PODS:
   - Avenue (0.2.0):
     - AFNetworking
     - KVOController
-    - PromiseKit (~> 2.0)
+    - PromiseKit/CorePromise (~> 2.0)
   - Expecta (1.0.2)
   - KVOController (1.0.3)
-  - OMGHTTPURLRQ (2.1.3):
-    - OMGHTTPURLRQ/RQ (= 2.1.3)
-  - OMGHTTPURLRQ/FormURLEncode (2.1.3)
-  - OMGHTTPURLRQ/RQ (2.1.3):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (2.1.3)
-  - PromiseKit (2.1.0):
-    - PromiseKit/Foundation (= 2.1.0)
-    - PromiseKit/QuartzCore (= 2.1.0)
-    - PromiseKit/UIKit (= 2.1.0)
-  - PromiseKit/CorePromise (2.1.0)
-  - PromiseKit/Foundation (2.1.0):
-    - OMGHTTPURLRQ (~> 2.1.3)
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (2.1.0):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (2.1.0):
-    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (2.1.1)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -58,11 +40,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Avenue: 73008e0afa3d2b7687c83e0b4dff2dba801f11fc
+  Avenue: b4da236a9a6a54331f289cde7a0d1d1af2c32535
   Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
-  PromiseKit: 6e9fae221f0bcf83fee53b611168cfb557f472d1
+  PromiseKit: 45fa68ef95b049be494a1502dab228a60374ad5a
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
 
-COCOAPODS: 0.38.1
+COCOAPODS: 0.38.2
