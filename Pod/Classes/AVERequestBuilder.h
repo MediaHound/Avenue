@@ -10,6 +10,8 @@
 
 @protocol AVERequestOperation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * A Request Builder is responsible for building Request Operations.
@@ -31,7 +33,9 @@
  */
 - (AFURLConnectionOperation<AVERequestOperation>*)build:(NSString*)method
                                                    path:(NSString*)path
-                                             parameters:(NSDictionary*)parameters
+                                             parameters:(nullable NSDictionary*)parameters
                               constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

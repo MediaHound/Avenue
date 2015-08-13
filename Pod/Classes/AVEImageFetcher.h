@@ -12,6 +12,8 @@
 #import "AVENetworkPriority.h"
 #import "AVENetworkToken.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * Use the `AVEImageFetcher` to asynchronously fetch remote images.
@@ -39,7 +41,7 @@
  */
 - (AnyPromise*)fetchImage:(NSString*)url
                  priority:(AVENetworkPriority*)priority
-             networkToken:(AVENetworkToken*)networkToken;
+             networkToken:(nullable AVENetworkToken*)networkToken;
 
 /**
  * Remove all images from cache.
@@ -47,3 +49,5 @@
 - (void)clearCache;
 
 @end
+
+NS_ASSUME_NONNULL_END

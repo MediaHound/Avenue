@@ -12,6 +12,8 @@
 #import "AVENetworkPriority.h"
 #import "AVENetworkToken.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * UIImageView extension for loading remote images with:
@@ -32,7 +34,7 @@
  * The returned promise will contain a UIImage*.
  */
 - (PMKPromise*)setImageForURL:(NSString*)url
-                  placeholder:(UIImage*)placeholder;
+                  placeholder:(nullable UIImage*)placeholder;
 
 /**
  * Asynchronously set the image view's image to a remote image URL.
@@ -46,9 +48,9 @@
  * The returned promise will contain a UIImage*.
  */
 - (PMKPromise*)setImageForURL:(NSString*)url
-                  placeholder:(UIImage*)placeholder
-                   stillValid:(BOOL(^)())stillValid
-                 networkToken:(AVENetworkToken*)networkToken;
+                  placeholder:(nullable UIImage*)placeholder
+                   stillValid:(nullable BOOL(^)())stillValid
+                 networkToken:(nullable AVENetworkToken*)networkToken;
 
 /**
  * Asynchronously set the image view's image to a remote image URL.
@@ -64,10 +66,12 @@
  * The returned promise will contain a UIImage*.
  */
 - (PMKPromise*)setImageForURL:(NSString*)url
-                  placeholder:(UIImage*)placeholder
+                  placeholder:(nullable UIImage*)placeholder
             crossFadeDuration:(NSTimeInterval)duration
-                   stillValid:(BOOL(^)())stillValid
+                   stillValid:(nullable BOOL(^)())stillValid
                      priority:(AVENetworkPriority*)priority
-                 networkToken:(AVENetworkToken*)networkToken;
+                 networkToken:(nullable AVENetworkToken*)networkToken;
 
 @end
+
+NS_ASSUME_NONNULL_END

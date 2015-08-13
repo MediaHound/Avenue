@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AVENetworkPriority.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * A network token is used to cancel or change the priority of a network request.
@@ -35,3 +37,5 @@
 - (void)changePriority:(AVENetworkPriority*)priority;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -11,6 +11,8 @@
 
 #import "AVERequestBuilder.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * A simple AVERequestBuilder that can be configured with a baseURL, request/response serializers,
@@ -24,13 +26,13 @@
 /**
  * Creates a builder with a base URL.
  */
-- (instancetype)initWithBaseURL:(NSURL*)url;
+- (instancetype)initWithBaseURL:(nullable NSURL*)url;
 
 /**
  * The builders' base URL
  * All operations built will use this base URL.
  */
-@property (strong, nonatomic) NSURL* baseURL;
+@property (strong, nullable, nonatomic) NSURL* baseURL;
 
 /**
  * The request serializer for all built operations
@@ -48,3 +50,5 @@
 @property (strong, nonatomic) AFSecurityPolicy* securityPolicy;
 
 @end
+
+NS_ASSUME_NONNULL_END

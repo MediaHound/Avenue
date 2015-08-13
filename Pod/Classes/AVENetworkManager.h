@@ -13,6 +13,8 @@
 #import "AVENetworkToken.h"
 #import "AVERequestBuilder.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * Use the `AVENetworkManager` to execute network requests.
@@ -36,9 +38,9 @@
  * @param builder A builder to construct the underlying request operation.
  */
 - (AnyPromise*)GET:(NSString*)URLString
-        parameters:(NSDictionary*)parameters
+        parameters:(nullable NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
-      networkToken:(AVENetworkToken*)networkToken
+      networkToken:(nullable AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder;
 
 /**
@@ -51,9 +53,9 @@
  * @param builder A builder to construct the underlying request operation
  */
 - (AnyPromise*)POST:(NSString*)URLString
-         parameters:(NSDictionary*)parameters
+         parameters:(nullable NSDictionary*)parameters
            priority:(AVENetworkPriority*)priority
-       networkToken:(AVENetworkToken*)networkToken
+       networkToken:(nullable AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder;
 
 /**
@@ -66,9 +68,9 @@
  * @param builder A builder to construct the underlying request operation.
  */
 - (AnyPromise*)PUT:(NSString*)URLString
-        parameters:(NSDictionary*)parameters
+        parameters:(nullable NSDictionary*)parameters
           priority:(AVENetworkPriority*)priority
-      networkToken:(AVENetworkToken*)networkToken
+      networkToken:(nullable AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder;
 
 /**
@@ -82,10 +84,10 @@
  * @param builder A builder to construct the underlying request operation
  */
 - (AnyPromise*)POST:(NSString*)URLString
-         parameters:(id)parameters
+         parameters:(nullable id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
            priority:(AVENetworkPriority*)priority
-       networkToken:(AVENetworkToken*)networkToken
+       networkToken:(nullable AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder;
 
 /**
@@ -99,3 +101,5 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
 - (void)clearCache;
 
 @end
+
+NS_ASSUME_NONNULL_END

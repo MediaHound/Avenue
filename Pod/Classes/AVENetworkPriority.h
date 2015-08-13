@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Priority Levels describe how/when a network request is fulfilled compared to other existing network requests.
  */
@@ -54,3 +56,5 @@ typedef NS_ENUM(NSInteger, AVENetworkPriorityLevel)
 @property (nonatomic, getter=isPostponeable, readonly) BOOL postponeable;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 @protocol AVERequestBuilder;
 @class AVENetworkPriority;
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 /**
  * All operations that are built by a `AVERequestBuilder` must inherit from AFURLConnectionOperation
@@ -29,7 +31,7 @@
 /**
  * Any parameters to include with the request.
  */
-@property (strong, nonatomic) NSDictionary* parameters;
+@property (strong, nullable, nonatomic) NSDictionary* parameters;
 
 /**
  * The HTTP request method.
@@ -67,3 +69,5 @@
 - (void)removeAllCompletions;
 
 @end
+
+NS_ASSUME_NONNULL_END
