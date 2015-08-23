@@ -204,6 +204,11 @@
       networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
+    // A nil priority just means a default of HIGH priority.
+    if (!priority) {
+        priority = [AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh];
+    }
+    
     return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
@@ -339,6 +344,12 @@
        networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
+    // A nil priority just means a default of HIGH priority that is not postponeable.
+    if (!priority) {
+        priority = [AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh
+                                            postponeable:NO];
+    }
+    
     return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
@@ -366,6 +377,12 @@
       networkToken:(AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder
 {
+    // A nil priority just means a default of HIGH priority that is not postponeable.
+    if (!priority) {
+        priority = [AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh
+                                            postponeable:NO];
+    }
+    
     return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
@@ -394,6 +411,12 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
        networkToken:(AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder
 {
+    // A nil priority just means a default of HIGH priority that is not postponeable.
+    if (!priority) {
+        priority = [AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh
+                                            postponeable:NO];
+    }
+    
     return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             

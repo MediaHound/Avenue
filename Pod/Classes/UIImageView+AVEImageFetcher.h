@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
                   placeholder:(nullable UIImage*)placeholder
             crossFadeDuration:(NSTimeInterval)duration
                    stillValid:(nullable BOOL(^)())stillValid
-                     priority:(AVENetworkPriority*)priority
+                     priority:(nullable AVENetworkPriority*)priority
                  networkToken:(nullable AVENetworkToken*)networkToken;
 
 @end

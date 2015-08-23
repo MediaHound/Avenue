@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AnyPromise*)GET:(NSString*)URLString
         parameters:(nullable NSDictionary*)parameters
-          priority:(AVENetworkPriority*)priority
+          priority:(nullable AVENetworkPriority*)priority
       networkToken:(nullable AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder;
 
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AnyPromise*)POST:(NSString*)URLString
          parameters:(nullable NSDictionary*)parameters
-           priority:(AVENetworkPriority*)priority
+           priority:(nullable AVENetworkPriority*)priority
        networkToken:(nullable AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder;
 
@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (AnyPromise*)PUT:(NSString*)URLString
         parameters:(nullable NSDictionary*)parameters
-          priority:(AVENetworkPriority*)priority
+          priority:(nullable AVENetworkPriority*)priority
       networkToken:(nullable AVENetworkToken*)networkToken
            builder:(id<AVERequestBuilder>)builder;
 
@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AnyPromise*)POST:(NSString*)URLString
          parameters:(nullable id)parameters
 constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
-           priority:(AVENetworkPriority*)priority
+           priority:(nullable AVENetworkPriority*)priority
        networkToken:(nullable AVENetworkToken*)networkToken
             builder:(id<AVERequestBuilder>)builder;
 

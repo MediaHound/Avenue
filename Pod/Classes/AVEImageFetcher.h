@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  * The returned promise will contain a UIImage*.
  */
 - (AnyPromise*)fetchImage:(NSString*)url
-                 priority:(AVENetworkPriority*)priority
+                 priority:(nullable AVENetworkPriority*)priority
              networkToken:(nullable AVENetworkToken*)networkToken;
 
 /**

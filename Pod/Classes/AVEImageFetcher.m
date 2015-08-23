@@ -105,7 +105,7 @@ static NSString* const kFolderName = @"generic_images_cache";
 - (AnyPromise*)fetchImage:(NSString*)url
 {
     return [self fetchImage:url
-                   priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh]
+                   priority:nil
                networkToken:nil];
 }
 

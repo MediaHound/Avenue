@@ -30,7 +30,7 @@
                     placeholder:placeholder
               crossFadeDuration:0
                      stillValid:stillValid
-                       priority:[AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh]
+                       priority:nil
                    networkToken:networkToken];
 }
 
