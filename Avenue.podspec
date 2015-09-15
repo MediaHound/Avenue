@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Avenue"
-  s.version          = "0.3.0"
+  s.version          = "0.3.1"
   s.summary          = "A Networking Infrastructure"
   s.homepage         = "https://github.com/MediaHound/Avenue"
   s.license          = 'Apache'

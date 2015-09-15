@@ -12,7 +12,7 @@
 
 @implementation UIImageView (AVEImageFetcher)
 
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(UIImage*)placeholder
 {
     return [self setImageForURL:url
@@ -21,7 +21,7 @@
                    networkToken:nil];
 }
 
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(UIImage*)placeholder
                    stillValid:(BOOL(^)())stillValid
                  networkToken:(AVENetworkToken*)networkToken
@@ -34,7 +34,7 @@
                    networkToken:networkToken];
 }
 
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(UIImage*)placeholder
             crossFadeDuration:(NSTimeInterval)duration
                    stillValid:(BOOL(^)())stillValid
@@ -44,7 +44,7 @@
     self.image = placeholder;
     
     if (!url) {
-        return [PMKPromise promiseWithValue:nil];
+        return [AnyPromise promiseWithValue:nil];
     }
     
     __weak typeof(self) weakSelf = self;

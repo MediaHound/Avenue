@@ -114,7 +114,7 @@ static NSString* const kFolderName = @"generic_images_cache";
              networkToken:(AVENetworkToken*)networkToken
 {
     __weak typeof(self) weakSelf = self;
-    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             if ([weakSelf haveImageForURL:url]) {
                 UIImage* image = [weakSelf imageForURL:url];

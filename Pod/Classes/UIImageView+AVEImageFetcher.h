@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  * attach a `then` handler to the returned promise.
  * The returned promise will contain a UIImage*.
  */
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(nullable UIImage*)placeholder;
 
 /**
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  * attach a `then` handler to the returned promise.
  * The returned promise will contain a UIImage*.
  */
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(nullable UIImage*)placeholder
                    stillValid:(nullable BOOL(^)())stillValid
                  networkToken:(nullable AVENetworkToken*)networkToken;
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  * attach a `then` handler to the returned promise.
  * The returned promise will contain a UIImage*.
  */
-- (PMKPromise*)setImageForURL:(NSString*)url
+- (AnyPromise*)setImageForURL:(NSString*)url
                   placeholder:(nullable UIImage*)placeholder
             crossFadeDuration:(NSTimeInterval)duration
                    stillValid:(nullable BOOL(^)())stillValid

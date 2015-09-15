@@ -209,7 +209,7 @@
         priority = [AVENetworkPriority priorityWithLevel:AVENetworkPriorityLevelHigh];
     }
     
-    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -350,7 +350,7 @@
                                             postponeable:NO];
     }
     
-    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -383,7 +383,7 @@
                                             postponeable:NO];
     }
     
-    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
@@ -417,7 +417,7 @@ constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))bodyBlock
                                             postponeable:NO];
     }
     
-    return [PMKPromise promiseWithResolverBlock:^(PMKResolver resolve) {
+    return [AnyPromise promiseWithResolverBlock:^(PMKResolver resolve) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [self.lock lock];
