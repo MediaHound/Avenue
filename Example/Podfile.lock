@@ -1,32 +1,32 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.1):
+    - AFNetworking/NSURLConnection (= 2.6.1)
+    - AFNetworking/NSURLSession (= 2.6.1)
+    - AFNetworking/Reachability (= 2.6.1)
+    - AFNetworking/Security (= 2.6.1)
+    - AFNetworking/Serialization (= 2.6.1)
+    - AFNetworking/UIKit (= 2.6.1)
+  - AFNetworking/NSURLConnection (2.6.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.1)
+  - AFNetworking/Security (2.6.1)
+  - AFNetworking/Serialization (2.6.1)
+  - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Avenue (0.2.0):
-    - AFNetworking
-    - KVOController
-    - PromiseKit/CorePromise (~> 2.0)
+  - Avenue (0.4.0):
+    - AFNetworking (~> 2.6)
+    - KVOController (~> 1.0)
+    - PromiseKit/CorePromise (~> 3.0)
   - Expecta (1.0.2)
   - KVOController (1.0.3)
-  - PromiseKit/CorePromise (2.1.1)
+  - PromiseKit/CorePromise (3.0.0)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -39,11 +39,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Avenue: b4da236a9a6a54331f289cde7a0d1d1af2c32535
+  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  Avenue: 62df91798a949758c82933a8a86b79cf1ee5391b
   Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  PromiseKit: 45fa68ef95b049be494a1502dab228a60374ad5a
+  PromiseKit: 665540a1eb43156446872dcf49ed7dee6ebbe13b
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
