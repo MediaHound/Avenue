@@ -41,9 +41,29 @@
                      priority:(AVENetworkPriority*)priority
                  networkToken:(AVENetworkToken*)networkToken
 {
-    self.image = placeholder;
+    return [self setImageForURL:url
+                    placeholder:placeholder
+              crossFadeDuration:duration
+                     stillValid:stillValid
+                       priority:priority
+                   networkToken:networkToken
+      usePlaceholderImmediately:YES];
+}
+
+- (AnyPromise*)setImageForURL:(NSString*)url
+                  placeholder:(nullable UIImage*)placeholder
+            crossFadeDuration:(NSTimeInterval)duration
+                   stillValid:(nullable BOOL(^)())stillValid
+                     priority:(nullable AVENetworkPriority*)priority
+                 networkToken:(nullable AVENetworkToken*)networkToken
+    usePlaceholderImmediately:(BOOL)usePlaceholderImmediately
+{
+    if (usePlaceholderImmediately) {
+        self.image = placeholder;
+    }
     
     if (!url) {
+        self.image = placeholder;
         return [AnyPromise promiseWithValue:nil];
     }
     
