@@ -80,8 +80,7 @@
         if (duration > 0 && weakSelf.window) {
             [UIView transitionWithView:weakSelf.superview
                               duration:duration
-             // TODO: Verify that we don't need AllowAnimatedContent
-                               options:UIViewAnimationOptionTransitionCrossDissolve /*| UIViewAnimationOptionAllowAnimatedContent*/ | UIViewAnimationOptionAllowUserInteraction
+                               options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionAllowUserInteraction
                             animations:^{
                                 weakSelf.image = image;
                             }
