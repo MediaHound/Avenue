@@ -1,32 +1,32 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Avenue (0.4.0):
+  - Avenue (0.4.2):
     - AFNetworking (~> 2.6)
-    - KVOController (~> 1.0)
+    - KVOController (~> 1.2)
     - PromiseKit/CorePromise (~> 3.0)
   - Expecta (1.0.2)
-  - KVOController (1.0.3)
-  - PromiseKit/CorePromise (3.0.0)
+  - KVOController (1.2.0)
+  - PromiseKit/CorePromise (3.5.1)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -39,11 +39,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  Avenue: 62df91798a949758c82933a8a86b79cf1ee5391b
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Avenue: d3115e41735a3cd916420301d4cb8deab03a7bca
   Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  PromiseKit: 665540a1eb43156446872dcf49ed7dee6ebbe13b
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  PromiseKit: 99ea973444a4bff6c38ffb97fa1bb175e619bcf0
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
 
 COCOAPODS: 0.39.0

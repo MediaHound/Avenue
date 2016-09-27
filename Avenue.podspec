@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Avenue"
-  s.version          = "0.4.2"
+  s.version          = "0.4.3"
   s.summary          = "A Networking Infrastructure"
   s.homepage         = "https://github.com/MediaHound/Avenue"
   s.license          = 'Apache'
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.private_header_files = "Pod/Classes/**/*+Internal.h"
 
   s.dependency 'AFNetworking', '~> 2.6'
-  s.dependency 'KVOController', '~> 1.0'
+  s.dependency 'KVOController', '~> 1.2'
   s.dependency 'PromiseKit/CorePromise', '~> 3.0'
 end
