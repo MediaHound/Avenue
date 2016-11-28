@@ -48,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)clearCache;
 
+/**
+ * Returns whether the image at the given url has already been fetched and is in the cache.
+ */
+- (BOOL)haveImageForURL:(NSString*)url;
+
 @end
 
 NS_ASSUME_NONNULL_END
